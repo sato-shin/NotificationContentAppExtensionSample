@@ -11,8 +11,11 @@ import UserNotifications
 import UserNotificationsUI
 import MapKit
 import SpriteKit
+import SceneKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
+    var scnView: SCNView?
+    
     func didReceive(_ notification: UNNotification) {
         guard let identifier = Identifier(rawValue: notification.request.identifier) else {
             return
@@ -22,6 +25,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         case .stackView: setupStackView()
         case .mapKit: setupMapView()
         case .spriteKit: setupSKView()
+        case .sceneKit: setupSCNView()
         }
     }
     
@@ -34,6 +38,7 @@ extension NotificationViewController {
         case stackView
         case mapKit
         case spriteKit
+        case sceneKit
     }
     
     func setupStackView() {
@@ -73,6 +78,16 @@ extension NotificationViewController {
         skView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         view.addSubview(skView)
         setEdgesEqualTo(superView: view, view: skView)
+    }
+    
+    func setupSCNView() {
+        let gameVC = GameViewController()
+        gameVC.view.translatesAutoresizingMaskIntoConstraints = false
+        gameVC.view.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        addChild(gameVC)
+        view.addSubview(gameVC.view)
+        gameVC.didMove(toParent: self)
+        setEdgesEqualTo(superView: view, view: gameVC.view)
     }
     
     func setEdgesEqualTo(superView: UIView, view: UIView) {

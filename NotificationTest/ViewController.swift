@@ -22,6 +22,10 @@ class ViewController: UIViewController {
         sendNotification(body: "SpriteKit", identifier: "spriteKit")
     }
     
+    @IBAction func touchupSceneKitButton(_ sender: Any) {
+        sendNotification(body: "SceneKit", identifier: "sceneKit")
+    }
+    
     func sendNotification(body: String, identifier: String) {
         // action
         let category = UNNotificationCategory(identifier: "myNotificationCategory",
