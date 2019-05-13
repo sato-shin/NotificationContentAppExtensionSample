@@ -14,18 +14,29 @@ import SpriteKit
 import SceneKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-    var scnView: SCNView?
+    var _inputViewController: UIViewController?
+    
+    override var inputView: UIView? {
+        return _inputViewController?.view
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
     
     func didReceive(_ notification: UNNotification) {
         guard let identifier = Identifier(rawValue: notification.request.identifier) else {
             return
         }
-        
+
         switch identifier {
         case .stackView: setupStackView()
         case .mapKit: setupMapView()
         case .spriteKit: setupSKView()
         case .sceneKit: setupSCNView()
+        case .inputView:
+            setupInputView()
+            becomeFirstResponder()
         }
     }
     
@@ -39,6 +50,7 @@ extension NotificationViewController {
         case mapKit
         case spriteKit
         case sceneKit
+        case inputView
     }
     
     func setupStackView() {
@@ -88,6 +100,24 @@ extension NotificationViewController {
         view.addSubview(gameVC.view)
         gameVC.didMove(toParent: self)
         setEdgesEqualTo(superView: view, view: gameVC.view)
+    }
+    
+    func setupInputView() {
+        let v = UIView()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.addSubview(v)
+        setEdgesEqualTo(superView: view, view: v)
+
+        let vc = InputViewController()
+        vc.tappedButtonHandler = {
+            if v.backgroundColor == .red {
+                v.backgroundColor = .white
+            } else {
+                v.backgroundColor = .red
+            }
+        }
+        _inputViewController = vc
     }
     
     func setEdgesEqualTo(superView: UIView, view: UIView) {

@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         sendNotification(body: "SceneKit", identifier: "sceneKit")
     }
     
+    @IBAction func touchupInputViewButton(_ sender: Any) {
+        sendNotification(body: "InputView", identifier: "inputView")
+    }
+    
     func sendNotification(body: String, identifier: String) {
         // action
         let category = UNNotificationCategory(identifier: "myNotificationCategory",
