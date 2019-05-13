@@ -10,6 +10,7 @@ import UIKit
 import UserNotifications
 import UserNotificationsUI
 import MapKit
+import SpriteKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
     func didReceive(_ notification: UNNotification) {
@@ -20,6 +21,7 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         switch identifier {
         case .stackView: setupStackView()
         case .mapKit: setupMapView()
+        case .spriteKit: setupSKView()
         }
     }
     
@@ -31,6 +33,7 @@ extension NotificationViewController {
     enum Identifier: String {
         case stackView
         case mapKit
+        case spriteKit
     }
     
     func setupStackView() {
@@ -56,6 +59,20 @@ extension NotificationViewController {
         mapView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         view.addSubview(mapView)
         setEdgesEqualTo(superView: view, view: mapView)
+    }
+    
+    func setupSKView() {
+        let skView = SKView()
+        let scene = SKScene(fileNamed: "GameScene")!
+        scene.scaleMode = .aspectFill
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.translatesAutoresizingMaskIntoConstraints = false
+        skView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.addSubview(skView)
+        setEdgesEqualTo(superView: view, view: skView)
     }
     
     func setEdgesEqualTo(superView: UIView, view: UIView) {

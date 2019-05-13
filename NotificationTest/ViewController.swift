@@ -11,25 +11,18 @@ import UserNotifications
 
 class ViewController: UIViewController {
     @IBAction func touchUpStackViewButton(_ sender: Any) {
-        // action
-        let category = UNNotificationCategory(identifier: "myNotificationCategory",
-                                              actions: [],
-                                              intentIdentifiers: [],
-                                              hiddenPreviewsBodyPlaceholder: "placeholder",
-                                              options: [.hiddenPreviewsShowSubtitle, .hiddenPreviewsShowTitle])
-        UNUserNotificationCenter.current().setNotificationCategories([category])
-        
-        // content
-        let content = UNMutableNotificationContent()
-        content.body = "Dynamic height with StackView"
-        content.categoryIdentifier = "myNotificationCategory"
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-        let request = UNNotificationRequest(identifier: "stackView", content: content, trigger: trigger)
-        
-        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        sendNotification(body: "Dynamic height with StackView", identifier: "stackView")
     }
     
     @IBAction func touchUpMapButton(_ sender: Any) {
+        sendNotification(body: "Map", identifier: "mapKit")
+    }
+    
+    @IBAction func touchUpSpriteKitButton(_ sender: Any) {
+        sendNotification(body: "SpriteKit", identifier: "spriteKit")
+    }
+    
+    func sendNotification(body: String, identifier: String) {
         // action
         let category = UNNotificationCategory(identifier: "myNotificationCategory",
                                               actions: [],
@@ -40,10 +33,10 @@ class ViewController: UIViewController {
         
         // content
         let content = UNMutableNotificationContent()
-        content.body = "map"
+        content.body = body
         content.categoryIdentifier = "myNotificationCategory"
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
-        let request = UNNotificationRequest(identifier: "mapKit", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
     }
