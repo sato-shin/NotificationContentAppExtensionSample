@@ -129,13 +129,21 @@
 		00A52A0522657A250045B231 /* NotificationContent */ = {
 			isa = PBXGroup;
 			children = (
-				00A52A0622657A250045B231 /* NotificationViewController.swift */,
+				00BBFEC1228940CD00242327 /* DynamicHeightWithStackView */,
 				00A52A0822657A250045B231 /* MainInterface.storyboard */,
+				00A52A0622657A250045B231 /* NotificationViewController.swift */,
 				00A52A0B22657A250045B231 /* Info.plist */,
-				00A52A162265F49A0045B231 /* ItemView.xib */,
-				00A52A182265F4EF0045B231 /* ItemView.swift */,
 			);
 			path = NotificationContent;
+			sourceTree = "<group>";
+		};
+		00BBFEC1228940CD00242327 /* DynamicHeightWithStackView */ = {
+			isa = PBXGroup;
+			children = (
+				00A52A182265F4EF0045B231 /* ItemView.swift */,
+				00A52A162265F49A0045B231 /* ItemView.xib */,
+			);
+			path = DynamicHeightWithStackView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

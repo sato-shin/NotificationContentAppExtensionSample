@@ -9,14 +9,40 @@
 import UIKit
 import UserNotifications
 import UserNotificationsUI
+import MapKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
-
-    @IBOutlet weak var stackView: UIStackView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func didReceive(_ notification: UNNotification) {
+        guard let identifier = Identifier(rawValue: notification.request.identifier) else {
+            return
+        }
         
+        switch identifier {
+        case .stackView: setupStackView()
+        case .mapKit: setupMapView()
+        }
+    }
+    
+    func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+    }
+}
+
+extension NotificationViewController {
+    enum Identifier: String {
+        case stackView
+        case mapKit
+    }
+    
+    func setupStackView() {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 8
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
+        setEdgesEqualTo(superView: view, view: stackView)
+
         (0..<5).forEach { i in
             let v = ItemView(frame: CGRect(x: 0, y: 0, width: 0, height: 60))
             v.label.text = "Item \(i)"
@@ -24,9 +50,16 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         }
     }
     
-    func didReceive(_ notification: UNNotification) {
+    func setupMapView() {
+        let mapView = MKMapView()
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        view.addSubview(mapView)
+        setEdgesEqualTo(superView: view, view: mapView)
     }
     
-    func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
+    func setEdgesEqualTo(superView: UIView, view: UIView) {
+        superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[view]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
+        superView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[view]|", options: NSLayoutConstraint.FormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
     }
 }
