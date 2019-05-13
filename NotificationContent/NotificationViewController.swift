@@ -15,9 +15,14 @@ import SceneKit
 
 class NotificationViewController: UIViewController, UNNotificationContentExtension {
     var _inputViewController: UIViewController?
+    var _inputView: UIView?
     
     override var inputView: UIView? {
-        return _inputViewController?.view
+        if _inputView != nil {
+            return _inputView
+        } else {
+            return _inputViewController?.view
+        }
     }
     
     override var canBecomeFirstResponder: Bool {
@@ -37,6 +42,9 @@ class NotificationViewController: UIViewController, UNNotificationContentExtensi
         case .inputView:
             setupInputView()
             becomeFirstResponder()
+        case .spriteOnInput:
+            setupSKViewOnInputView()
+            becomeFirstResponder()
         }
     }
     
@@ -51,6 +59,7 @@ extension NotificationViewController {
         case spriteKit
         case sceneKit
         case inputView
+        case spriteOnInput
     }
     
     func setupStackView() {
@@ -111,13 +120,37 @@ extension NotificationViewController {
 
         let vc = InputViewController()
         vc.tappedButtonHandler = {
-            if v.backgroundColor == .red {
-                v.backgroundColor = .white
-            } else {
-                v.backgroundColor = .red
-            }
+            v.backgroundColor = (v.backgroundColor == .red) ? .white : .red
         }
         _inputViewController = vc
+    }
+    
+    func setupSKViewOnInputView() {
+        let lView = LabelView()
+        view.addSubview(lView)
+        setEdgesEqualTo(superView: view, view: lView)
+        
+        let skView = SKView()
+        let scene = SKScene(fileNamed: "GameScene")! as! GameScene
+        scene.touchDownHandler = { pos in
+            lView.label.text = "x = \(pos.x)\ny = \(pos.y)"
+            lView.label.textColor = .green
+        }
+        scene.touchMovedHandler = { pos in
+            lView.label.text = "x = \(pos.x)\ny = \(pos.y)"
+            lView.label.textColor = .blue
+        }
+        scene.touchUpHandler = { pos in
+            lView.label.text = "x = \(pos.x)\ny = \(pos.y)"
+            lView.label.textColor = .red
+        }
+        scene.scaleMode = .aspectFill
+        skView.presentScene(scene)
+        skView.ignoresSiblingOrder = true
+        skView.showsFPS = true
+        skView.showsNodeCount = true
+        skView.translatesAutoresizingMaskIntoConstraints = false
+        _inputView = skView
     }
     
     func setEdgesEqualTo(superView: UIView, view: UIView) {

@@ -22,38 +22,45 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghp-u1-8F0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="151"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
                                         <state key="normal" title="Dynamic height with StackView"/>
                                         <connections>
                                             <action selector="touchUpStackViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7S9-NR-Dwy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Hx-qn-Sk6">
-                                        <rect key="frame" x="0.0" y="167" width="414" height="150.5"/>
+                                        <rect key="frame" x="0.0" y="139" width="414" height="123"/>
                                         <state key="normal" title="Map"/>
                                         <connections>
                                             <action selector="touchUpMapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zxh-xQ-4gC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66Q-sE-kZB">
-                                        <rect key="frame" x="0.0" y="333.5" width="414" height="151"/>
+                                        <rect key="frame" x="0.0" y="278" width="414" height="123"/>
                                         <state key="normal" title="SpriteKit"/>
                                         <connections>
                                             <action selector="touchUpSpriteKitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lQo-jR-8ZX"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJi-CY-zZW">
-                                        <rect key="frame" x="0.0" y="500.5" width="414" height="150.5"/>
+                                        <rect key="frame" x="0.0" y="417" width="414" height="123"/>
                                         <state key="normal" title="SceneKit"/>
                                         <connections>
                                             <action selector="touchupSceneKitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HD0-JQ-EjS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNF-kW-gU2">
-                                        <rect key="frame" x="0.0" y="667" width="414" height="151"/>
+                                        <rect key="frame" x="0.0" y="556" width="414" height="123"/>
                                         <state key="normal" title="InputView"/>
                                         <connections>
                                             <action selector="touchupInputViewButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rjc-IM-IIt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmL-ZS-hOp">
+                                        <rect key="frame" x="0.0" y="695" width="414" height="123"/>
+                                        <state key="normal" title="SpriteKit on InputView"/>
+                                        <connections>
+                                            <action selector="touchupSpriteAndSceneKit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0yr-Ib-9EP"/>
                                         </connections>
                                     </button>
                                 </subviews>

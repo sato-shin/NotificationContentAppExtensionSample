@@ -27,6 +27,8 @@
 		00BBFF382289631500242327 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BBFF372289631500242327 /* GameViewController.xib */; };
 		00BBFF3B22896F7700242327 /* InputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00BBFF3A22896F7700242327 /* InputViewController.xib */; };
 		00BBFF3D22896F9C00242327 /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BBFF3C22896F9C00242327 /* InputViewController.swift */; };
+		00D9987B228A6BC10084C331 /* LabelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00D9987A228A6BC10084C331 /* LabelView.xib */; };
+		00D9987D228A6BDA0084C331 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D9987C228A6BDA0084C331 /* LabelView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		00BBFF372289631500242327 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		00BBFF3A22896F7700242327 /* InputViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InputViewController.xib; sourceTree = "<group>"; };
 		00BBFF3C22896F9C00242327 /* InputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		00D9987A228A6BC10084C331 /* LabelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LabelView.xib; sourceTree = "<group>"; };
+		00D9987C228A6BDA0084C331 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 		00A52A0522657A250045B231 /* NotificationContent */ = {
 			isa = PBXGroup;
 			children = (
+				00BBFF3E228999C200242327 /* SpriteKitOnInputView */,
 				00BBFF3922896F6600242327 /* InputView */,
 				00BBFEF22289511000242327 /* SceneKit */,
 				00BBFEEB22894F7600242327 /* SpriteKit */,
@@ -192,6 +197,15 @@
 				00BBFF3A22896F7700242327 /* InputViewController.xib */,
 			);
 			path = InputView;
+			sourceTree = "<group>";
+		};
+		00BBFF3E228999C200242327 /* SpriteKitOnInputView */ = {
+			isa = PBXGroup;
+			children = (
+				00D9987C228A6BDA0084C331 /* LabelView.swift */,
+				00D9987A228A6BC10084C331 /* LabelView.xib */,
+			);
+			path = SpriteKitOnInputView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BBFEF122894FC500242327 /* GameScene.sks in Resources */,
+				00D9987B228A6BC10084C331 /* LabelView.xib in Resources */,
 				00A52A0A22657A250045B231 /* MainInterface.storyboard in Resources */,
 				00BBFF382289631500242327 /* GameViewController.xib in Resources */,
 				00BBFF362289553400242327 /* art.scnassets in Resources */,
@@ -321,6 +336,7 @@
 				00BBFF3D22896F9C00242327 /* InputViewController.swift in Sources */,
 				00A52A0722657A250045B231 /* NotificationViewController.swift in Sources */,
 				00A52A192265F4EF0045B231 /* ItemView.swift in Sources */,
+				00D9987D228A6BDA0084C331 /* LabelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

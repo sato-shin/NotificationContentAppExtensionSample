@@ -11,7 +11,6 @@ import QuartzCore
 import SceneKit
 
 class GameViewController: UIViewController {
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +38,7 @@ class GameViewController: UIViewController {
         ambientLightNode.light!.type = .ambient
         ambientLightNode.light!.color = UIColor.darkGray
         scene.rootNode.addChildNode(ambientLightNode)
-        
+
         // retrieve the ship node
         let ship = scene.rootNode.childNode(withName: "ship", recursively: true)!
         
@@ -48,7 +47,7 @@ class GameViewController: UIViewController {
         
         // retrieve the SCNView
         let scnView = self.view as! SCNView
-        
+
         // set the scene to the view
         scnView.scene = scene
         

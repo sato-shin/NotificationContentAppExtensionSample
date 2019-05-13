@@ -30,6 +30,10 @@ class ViewController: UIViewController {
         sendNotification(body: "InputView", identifier: "inputView")
     }
     
+    @IBAction func touchupSpriteAndSceneKit(_ sender: Any) {
+        sendNotification(body: "SpriteKit on InputView", identifier: "spriteOnInput")
+    }
+    
     func sendNotification(body: String, identifier: String) {
         // action
         let category = UNNotificationCategory(identifier: "myNotificationCategory",

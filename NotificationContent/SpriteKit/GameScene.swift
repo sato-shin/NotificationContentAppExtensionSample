@@ -10,9 +10,13 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    
+    var touchDownHandler: ((CGPoint) -> Void)?
+    var touchUpHandler: ((CGPoint) -> Void)?
+    var touchMovedHandler: ((CGPoint) -> Void)?
+
     
     override func didMove(to view: SKView) {
         
@@ -38,28 +42,31 @@ class GameScene: SKScene {
     }
     
     
-    func touchDown(atPoint pos : CGPoint) {
+    func touchDown(atPoint pos: CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.green
             self.addChild(n)
         }
+        touchDownHandler?(pos)
     }
     
-    func touchMoved(toPoint pos : CGPoint) {
+    func touchMoved(toPoint pos: CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.blue
             self.addChild(n)
         }
+        touchMovedHandler?(pos)
     }
     
-    func touchUp(atPoint pos : CGPoint) {
+    func touchUp(atPoint pos: CGPoint) {
         if let n = self.spinnyNode?.copy() as! SKShapeNode? {
             n.position = pos
             n.strokeColor = SKColor.red
             self.addChild(n)
         }
+        touchUpHandler?(pos)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
