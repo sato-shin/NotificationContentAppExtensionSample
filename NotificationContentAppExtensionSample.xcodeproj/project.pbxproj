@@ -56,14 +56,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0046BF4C22649EC600A135F7 /* NotificationTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0042DE79228BBC1D001D2F03 /* NotificationContentAppExtensionSample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationContentAppExtensionSample.entitlements; sourceTree = "<group>"; };
+		0046BF4C22649EC600A135F7 /* NotificationContentAppExtensionSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationContentAppExtensionSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0046BF4F22649EC600A135F7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0046BF5122649EC600A135F7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0046BF5422649EC600A135F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0046BF5622649EC800A135F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0046BF5922649EC800A135F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0046BF5B22649EC800A135F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0046BF6122649F1E00A135F7 /* NotificationTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotificationTest.entitlements; sourceTree = "<group>"; };
 		00A529FF22657A250045B231 /* NotificationContent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NotificationContent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		00A52A0122657A250045B231 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		00A52A0322657A250045B231 /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
@@ -107,8 +107,9 @@
 		0046BF4322649EC600A135F7 = {
 			isa = PBXGroup;
 			children = (
-				0046BF4E22649EC600A135F7 /* NotificationTest */,
-				00A52A0522657A250045B231 /* NotificationContent */,
+				0042DE79228BBC1D001D2F03 /* NotificationContentAppExtensionSample.entitlements */,
+				0046BF4E22649EC600A135F7 /* Sources */,
+				00A52A0522657A250045B231 /* NotificationContentAppExtension */,
 				00A52A0022657A250045B231 /* Frameworks */,
 				0046BF4D22649EC600A135F7 /* Products */,
 			);
@@ -117,16 +118,15 @@
 		0046BF4D22649EC600A135F7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0046BF4C22649EC600A135F7 /* NotificationTest.app */,
+				0046BF4C22649EC600A135F7 /* NotificationContentAppExtensionSample.app */,
 				00A529FF22657A250045B231 /* NotificationContent.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		0046BF4E22649EC600A135F7 /* NotificationTest */ = {
+		0046BF4E22649EC600A135F7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				0046BF6122649F1E00A135F7 /* NotificationTest.entitlements */,
 				0046BF4F22649EC600A135F7 /* AppDelegate.swift */,
 				0046BF5122649EC600A135F7 /* ViewController.swift */,
 				0046BF5322649EC600A135F7 /* Main.storyboard */,
@@ -134,7 +134,7 @@
 				0046BF5822649EC800A135F7 /* LaunchScreen.storyboard */,
 				0046BF5B22649EC800A135F7 /* Info.plist */,
 			);
-			path = NotificationTest;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		00A52A0022657A250045B231 /* Frameworks */ = {
@@ -146,7 +146,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		00A52A0522657A250045B231 /* NotificationContent */ = {
+		00A52A0522657A250045B231 /* NotificationContentAppExtension */ = {
 			isa = PBXGroup;
 			children = (
 				00BBFF3E228999C200242327 /* SpriteKitOnInputView */,
@@ -158,7 +158,7 @@
 				00A52A0622657A250045B231 /* NotificationViewController.swift */,
 				00A52A0B22657A250045B231 /* Info.plist */,
 			);
-			path = NotificationContent;
+			path = NotificationContentAppExtension;
 			sourceTree = "<group>";
 		};
 		00BBFEC1228940CD00242327 /* DynamicHeightWithStackView */ = {
@@ -211,9 +211,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0046BF4B22649EC600A135F7 /* NotificationTest */ = {
+		0046BF4B22649EC600A135F7 /* NotificationContentAppExtensionSample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0046BF5E22649EC800A135F7 /* Build configuration list for PBXNativeTarget "NotificationTest" */;
+			buildConfigurationList = 0046BF5E22649EC800A135F7 /* Build configuration list for PBXNativeTarget "NotificationContentAppExtensionSample" */;
 			buildPhases = (
 				0046BF4822649EC600A135F7 /* Sources */,
 				0046BF4922649EC600A135F7 /* Frameworks */,
@@ -225,9 +225,9 @@
 			dependencies = (
 				00A52A0D22657A250045B231 /* PBXTargetDependency */,
 			);
-			name = NotificationTest;
+			name = NotificationContentAppExtensionSample;
 			productName = NotificationTest;
-			productReference = 0046BF4C22649EC600A135F7 /* NotificationTest.app */;
+			productReference = 0046BF4C22649EC600A135F7 /* NotificationContentAppExtensionSample.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00A529FE22657A250045B231 /* NotificationContent */ = {
@@ -270,7 +270,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 0046BF4722649EC600A135F7 /* Build configuration list for PBXProject "NotificationTest" */;
+			buildConfigurationList = 0046BF4722649EC600A135F7 /* Build configuration list for PBXProject "NotificationContentAppExtensionSample" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -283,7 +283,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0046BF4B22649EC600A135F7 /* NotificationTest */,
+				0046BF4B22649EC600A135F7 /* NotificationContentAppExtensionSample */,
 				00A529FE22657A250045B231 /* NotificationContent */,
 			);
 		};
@@ -499,15 +499,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NotificationTest/NotificationTest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NotificationContentAppExtensionSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37PA78LHD7;
-				INFOPLIST_FILE = NotificationTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationContentAppExtensionSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -519,15 +519,15 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NotificationTest/NotificationTest.entitlements;
+				CODE_SIGN_ENTITLEMENTS = NotificationContentAppExtensionSample.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37PA78LHD7;
-				INFOPLIST_FILE = NotificationTest/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationContentAppExtensionSample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -539,13 +539,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37PA78LHD7;
-				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NotificationContentAppExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationTest.NotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationContentAppExtensionSample.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -558,13 +558,13 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 37PA78LHD7;
-				INFOPLIST_FILE = NotificationContent/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/NotificationContentAppExtension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationTest.NotificationContent;
+				PRODUCT_BUNDLE_IDENTIFIER = com.askendit.us.asken.NotificationContentAppExtensionSample.NotificationContent;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -575,7 +575,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0046BF4722649EC600A135F7 /* Build configuration list for PBXProject "NotificationTest" */ = {
+		0046BF4722649EC600A135F7 /* Build configuration list for PBXProject "NotificationContentAppExtensionSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0046BF5C22649EC800A135F7 /* Debug */,
@@ -584,7 +584,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		0046BF5E22649EC800A135F7 /* Build configuration list for PBXNativeTarget "NotificationTest" */ = {
+		0046BF5E22649EC800A135F7 /* Build configuration list for PBXNativeTarget "NotificationContentAppExtensionSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				0046BF5F22649EC800A135F7 /* Debug */,
